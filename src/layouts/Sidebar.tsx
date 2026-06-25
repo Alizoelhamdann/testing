@@ -9,7 +9,7 @@ import {
   Activity,
   FileText,
   ChevronLeft,
-  X // <--- Tambahan Icon X dari lucide-react
+  X
 } from 'lucide-react';
 
 interface SidebarProps {
@@ -37,7 +37,7 @@ export default function Sidebar({ activeMenu, onMenuChange, onLogoClick, isOpen,
     <aside 
       className={`sidebar-gradient fixed inset-y-0 left-0 z-50 w-72 flex flex-col text-white transform transition-transform duration-300 ease-in-out
         ${isOpen ? 'translate-x-0' : '-translate-x-full'} 
-        md:translate-x-0 md:h-screen`}
+        h-screen`}
     >
       {/* Logo */}
       <div className="p-6 border-b border-white/10 flex justify-between items-center">
@@ -55,9 +55,8 @@ export default function Sidebar({ activeMenu, onMenuChange, onLogoClick, isOpen,
             <div className="text-[10px] text-blue-200/70 tracking-wider">BANK PERKREDITAN RAKYAT</div>
           </div>
         </button>
-        
-        {/* Tombol Close buat HP */}
-        <button onClick={onClose} className="md:hidden p-2 text-white/70 hover:bg-white/10 rounded-lg">
+
+        <button onClick={onClose} className="p-2 text-white/70 hover:bg-white/10 rounded-lg">
           <X className="w-5 h-5" />
         </button>
       </div>
