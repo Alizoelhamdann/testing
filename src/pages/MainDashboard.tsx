@@ -98,7 +98,7 @@ export default function MainDashboard({ onAOClick }: MainDashboardProps) {
       </div>
 
       {/* KPI Cards */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-6 gap-4">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-6 gap-4 w-full">
         {[
           { label: 'Jumlah AO', value: '15', unit: 'Orang', growth: 8.5, trend: 'up', icon: Users, color: 'from-blue-500 to-blue-600', iconBg: 'bg-blue-100' },
           { label: 'Jumlah CM', value: '100', unit: 'Orang', growth: 12.3, trend: 'up', icon: Users, color: 'from-emerald-500 to-emerald-600', iconBg: 'bg-emerald-100' },
@@ -323,8 +323,8 @@ export default function MainDashboard({ onAOClick }: MainDashboardProps) {
             <h3 className="text-sm font-bold text-slate-900 uppercase tracking-wide">Rencana Pencairan</h3>
             <Target size={18} className="text-blue-600" />
           </div>
-          <div className="overflow-hidden rounded-lg border border-slate-200">
-            <table className="w-full text-sm">
+          <div className="overflow-x-auto w-full rounded-lg border border-slate-200">
+            <table className="w-full min-w-[600px] text-sm">
               <thead className="bg-slate-50">
                 <tr>
                   <th className="text-left px-3 py-2.5 text-[11px] font-semibold text-slate-600 uppercase">Produk</th>
@@ -449,7 +449,7 @@ export default function MainDashboard({ onAOClick }: MainDashboardProps) {
           <div className="text-xs text-slate-500">Click nama AO untuk drill-down</div>
         </div>
         <div className="overflow-x-auto">
-          <table className="w-full text-sm">
+          <table className="w-full min-w-[600px] text-sm">
             <thead>
               <tr className="border-b border-slate-200">
                 <th className="text-left px-3 py-2.5 text-[11px] font-bold text-slate-500 uppercase">#</th>

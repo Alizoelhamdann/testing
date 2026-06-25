@@ -9,12 +9,15 @@ import {
   Activity,
   FileText,
   ChevronLeft,
+  X // <--- Tambahan Icon X dari lucide-react
 } from 'lucide-react';
 
 interface SidebarProps {
   activeMenu: string;
   onMenuChange: (menu: string) => void;
   onLogoClick: () => void;
+  isOpen?: boolean;
+  onClose?: () => void;
 }
 
 const MENU_ITEMS = [
@@ -29,12 +32,16 @@ const MENU_ITEMS = [
   { id: 'reports', label: 'Reports', icon: FileText },
 ];
 
-export default function Sidebar({ activeMenu, onMenuChange, onLogoClick }: SidebarProps) {
+export default function Sidebar({ activeMenu, onMenuChange, onLogoClick, isOpen, onClose }: SidebarProps) {
   return (
-    <aside className="sidebar-gradient w-72 min-h-screen flex flex-col fixed left-0 top-0 z-40 text-white">
+    <aside 
+      className={`sidebar-gradient fixed inset-y-0 left-0 z-50 w-72 flex flex-col text-white transform transition-transform duration-300 ease-in-out
+        ${isOpen ? 'translate-x-0' : '-translate-x-full'} 
+        md:translate-x-0 md:h-screen`}
+    >
       {/* Logo */}
-      <div className="p-6 border-b border-white/10">
-        <button onClick={onLogoClick} className="flex items-center gap-3 w-full hover:opacity-90 transition-opacity">
+      <div className="p-6 border-b border-white/10 flex justify-between items-center">
+        <button onClick={onLogoClick} className="flex items-center gap-3 hover:opacity-90 transition-opacity">
           <div className="w-11 h-11 rounded-xl bg-gradient-to-br from-blue-400 to-blue-600 flex items-center justify-center shadow-lg shadow-blue-900/50">
             <svg viewBox="0 0 24 24" fill="none" className="w-6 h-6 text-white" stroke="currentColor" strokeWidth="2.5">
               <rect x="3" y="3" width="7" height="7" rx="1.5" />
@@ -47,6 +54,11 @@ export default function Sidebar({ activeMenu, onMenuChange, onLogoClick }: Sideb
             <div className="text-xl font-bold tracking-tight">BPR</div>
             <div className="text-[10px] text-blue-200/70 tracking-wider">BANK PERKREDITAN RAKYAT</div>
           </div>
+        </button>
+        
+        {/* Tombol Close buat HP */}
+        <button onClick={onClose} className="md:hidden p-2 text-white/70 hover:bg-white/10 rounded-lg">
+          <X className="w-5 h-5" />
         </button>
       </div>
 
